@@ -52,6 +52,7 @@ export default function VideoIntro() {
       if (!v) return
       v.muted = false
       setMuted(false)
+      v.play().catch(() => {})
       dismissHint()
     }
     window.addEventListener('loader-dismissed', onLoaderDismissed)
