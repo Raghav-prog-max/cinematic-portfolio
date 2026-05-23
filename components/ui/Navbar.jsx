@@ -10,8 +10,17 @@ import {
 import { gsap } from '@/lib/gsap'
 import profile from '@/data/profile.json'
 import styles from '@/styles/ui/Navbar.module.css'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
-const NAV_ITEMS = ['HOME', 'ABOUT', 'WORKS', 'SERVICES', 'EXPERIENCE']
+// idx matches snap position in page.js (0=video,1=hero,2=about,3-4=projects,5=work-exp,6=publications,7=footer)
+const NAV_ITEMS = [
+  { label: 'Home',         idx: 0 },
+  { label: 'About',        idx: 2 },
+  { label: 'Projects',     idx: 3 },
+  { label: 'Experience',   idx: 5 },
+  { label: 'Publications', idx: 6 },
+  { label: 'Contact',      idx: 7 },
+]
 
 function getIST() {
   return new Date().toLocaleTimeString('en-IN', {
@@ -26,6 +35,8 @@ function getIST() {
 export default function Navbar() {
   const [time,    setTime]    = useState('')   // '' on SSR — avoids hydration mismatch
   const [onIntro, setOnIntro] = useState(true)
+  const [onDark,  setOnDark]  = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const headerRef   = useRef(null)
   const lastY       = useRef(0)
   const hidden      = useRef(false)
@@ -53,7 +64,9 @@ export default function Navbar() {
       const currentY = scroller.scrollTop ?? window.scrollY
       const delta    = currentY - lastY.current
 
+      const sectionIdx = Math.round(currentY / vh)
       setOnIntro(currentY < vh * 0.8)
+      setOnDark(sectionIdx >= 3)
 
       if (delta > 8 && !hidden.current) {
         gsap.to(headerRef.current, { y: '-100%', duration: 0.35, ease: 'power2.inOut' })
@@ -77,27 +90,77 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header ref={headerRef} className={`${styles.header} ${onIntro ? styles.introMode : ''}`}>
-      <span className={styles.time}>INDIA TIME - {time}</span>
+    <>
+      <header ref={headerRef} className={`${styles.header} ${onIntro ? styles.introMode : ''} ${onDark ? styles.darkMode : ''}`}>
+        <span className={styles.time}>INDIA TIME - {time}</span>
 
-      <NavigationMenu className={styles.navMenu}>
-        <NavigationMenuList className="flex gap-6">
-          {NAV_ITEMS.map(item => (
-            <NavigationMenuItem key={item}>
-              <NavigationMenuLink className={styles.navLink}>
-                {item}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+        <NavigationMenu className={styles.navMenu}>
+          <NavigationMenuList className="flex gap-6">
+            {NAV_ITEMS.map(({ label, idx }) => (
+              <NavigationMenuItem key={label}>
+                <NavigationMenuLink
+                  className={styles.navLink}
+                  onClick={() => {
+                    const scroller = document.querySelector('main')
+                    if (scroller) gsap.to(scroller, {
+                      scrollTop: idx * window.innerHeight,
+                      duration: 1.0,
+                      ease: 'power3.inOut',
+                    })
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <a
+          href={`mailto:${profile.email}`}
+          className={`${styles.emailBtn} rounded-full text-xs font-semibold px-5 h-8`}
+        >
+          Email me
+        </a>
+
+        <button
+          className={styles.hamburger}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+        </button>
+      </header>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {NAV_ITEMS.map(({ label, idx }) => (
+            <button
+              key={label}
+              className={styles.mobileNavLink}
+              onClick={() => {
+                const scroller = document.querySelector('main')
+                if (scroller) gsap.to(scroller, {
+                  scrollTop: idx * window.innerHeight,
+                  duration: 1.0,
+                  ease: 'power3.inOut',
+                })
+                setMenuOpen(false)
+              }}
+            >
+              {label}
+            </button>
           ))}
-        </NavigationMenuList>
-      </NavigationMenu>
-
-      <a
-        href={`mailto:${profile.email}`}
-        className={`${styles.emailBtn} rounded-full text-xs font-semibold px-5 h-8`}
-      >
-        Email me
-      </a>
-    </header>
+          <a
+            href={`mailto:${profile.email}`}
+            className={styles.mobileMailLink}
+            onClick={() => setMenuOpen(false)}
+          >
+            {profile.email}
+          </a>
+        </div>
+      )}
+    </>
   )
 }
