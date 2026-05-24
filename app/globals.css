@@ -24,6 +24,9 @@
   /* Status */
   --status-available: #22c55e;
 
+  /* Text dark token */
+  --text-dark: #1e1e1e;
+
   /* Navbar */
   --navbar-text:    #1a0800;
   --email-btn-bg:   #ffffff;

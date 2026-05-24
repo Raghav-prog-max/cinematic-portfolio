@@ -85,7 +85,9 @@ export default function HeroSection() {
     return () => { observer.disconnect(); tl.kill() }
   }, [])
 
-  const sidebarSocials = profile.socials.filter(s => SIDEBAR_LABELS.includes(s.label))
+  const sidebarSocials = SIDEBAR_LABELS
+    .map(label => profile.socials.find(s => s.label === label))
+    .filter(Boolean)
 
   return (
     <section ref={sectionRef} className={styles.section}>
@@ -158,7 +160,7 @@ export default function HeroSection() {
         </div>
 
         {/* View Projects CTA */}
-        <button ref={ctaBtnRef} className={styles.viewBtn} onClick={handleViewProjects}>
+        <button ref={ctaBtnRef} type="button" className={styles.viewBtn} onClick={handleViewProjects}>
           View Projects <span aria-hidden="true">↗</span>
         </button>
 
