@@ -4,6 +4,7 @@ import { useEffect, useRef, Fragment } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { gsap } from '@/lib/gsap'
 
 import profile from '@/data/profile.json'
@@ -161,7 +162,7 @@ export default function HeroSection() {
 
         {/* View Projects CTA */}
         <button ref={ctaBtnRef} type="button" className={styles.viewBtn} onClick={handleViewProjects}>
-          View Projects <span aria-hidden="true">↗</span>
+           View Projects <FiArrowUpRight />
         </button>
 
         {/* Stats Row */}
