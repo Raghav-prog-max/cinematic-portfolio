@@ -10,14 +10,14 @@ Animated personal portfolio built with **Next.js 16**, **GSAP**, **Three.js**, a
 
 ## Stack
 
-| Layer | Tech |
-|---|---|
-| Framework | Next.js 16.2 (App Router, React Compiler) |
-| Animations | GSAP 3 + Three.js |
-| Styling | CSS Modules + Tailwind v4 (tokens only) |
-| UI primitives | Base UI + shadcn/ui |
-| Icons | react-icons |
-| Fonts | Geist, Baloo 2, Dancing Script (via `next/font`) |
+| Layer         | Tech                                             |
+| ------------- | ------------------------------------------------ |
+| Framework     | Next.js 16.2 (App Router, React Compiler)        |
+| Animations    | GSAP 3 + Three.js                                |
+| Styling       | CSS Modules + Tailwind v4 (tokens only)          |
+| UI primitives | Base UI + shadcn/ui                              |
+| Icons         | react-icons                                      |
+| Fonts         | Geist, Baloo 2, Dancing Script (via `next/font`) |
 
 ---
 
@@ -95,17 +95,17 @@ npm start
 
 Key fields:
 
-| Field | What it controls |
-|---|---|
-| `name` | Name rendered in VideoIntro + Navbar |
-| `tagline` | Eyebrow text on VideoIntro |
-| `roles` | Role subtitle on VideoIntro + Hero |
-| `bio` | About section body text |
-| `experience[]` | Work experience cards |
-| `projects[]` | Project carousel cards |
-| `publications[]` | Publications section entries |
-| `social` | Social link URLs (GitHub, LinkedIn, etc.) |
-| `email` | Contact email |
+| Field            | What it controls                          |
+| ---------------- | ----------------------------------------- |
+| `name`           | Name rendered in VideoIntro + Navbar      |
+| `tagline`        | Eyebrow text on VideoIntro                |
+| `roles`          | Role subtitle on VideoIntro + Hero        |
+| `bio`            | About section body text                   |
+| `experience[]`   | Work experience cards                     |
+| `projects[]`     | Project carousel cards                    |
+| `publications[]` | Publications section entries              |
+| `social`         | Social link URLs (GitHub, LinkedIn, etc.) |
+| `email`          | Contact email                             |
 
 **To retheme colors** edit the CSS tokens in `app/globals.css` under `:root`.
 
@@ -117,17 +117,17 @@ Key tokens: `--accent`, `--hero-start / --hero-mid / --hero-end`, `--text-primar
 
 Place all media in `public/assets/`:
 
-| File | Used by | Notes |
-|---|---|---|
-| `about-me.mp4` | VideoIntro | Autoplay ambient bg + main intro video |
-| `hero.png` | HeroSection | Portrait photo (right side) |
-| `about.png` | AboutSection | About photo |
-| `work-experience.png` | WorkExperienceSection | Primary company image |
-| `work-experience-2.png` | WorkExperienceSection | Secondary image |
-| `work-experience-3.png` | WorkExperienceSection | Tertiary image |
-| `footer.png` | PublicationsFooterSection | Transitions into footer |
-| `footer-video.mp4` | PublicationsFooterSection | Footer background video |
-| `project-*.png` | ProjectsSection | One image per project in profile.json |
+| File                    | Used by                   | Notes                                  |
+| ----------------------- | ------------------------- | -------------------------------------- |
+| `about-me.mp4`          | VideoIntro                | Autoplay ambient bg + main intro video |
+| `hero.png`              | HeroSection               | Portrait photo (right side)            |
+| `about.webp`            | AboutSection              | About photo                            |
+| `work-experience.webp`  | WorkExperienceSection     | Primary company image                  |
+| `work-experience-2.png` | WorkExperienceSection     | Secondary image                        |
+| `work-experience-3.png` | WorkExperienceSection     | Tertiary image                         |
+| `footer.png`            | PublicationsFooterSection | Transitions into footer                |
+| `footer-video.mp4`      | PublicationsFooterSection | Footer background video                |
+| `project-*.png`         | ProjectsSection           | One image per project in profile.json  |
 
 ---
 

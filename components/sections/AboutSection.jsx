@@ -87,7 +87,7 @@ export default function AboutSection() {
         <div className={styles.photoWrap}>
           <div className={styles.photoFrame} data-about-photo>
             <Image
-              src="/assets/about.png"
+              src="/assets/about.webp"
               alt="Vaibhav Khushalani"
               fill
               quality={100}

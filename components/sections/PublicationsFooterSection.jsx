@@ -255,7 +255,7 @@ export default function PublicationsFooterSection() {
       const vw = window.innerWidth
 
       if (isMobile) {
-        // footer-mobile.png static background — interstitial fades between pub and footer
+        // footer-mobile.webp static background — interstitial fades between pub and footer
         const interIn  = Math.max(0, Math.min(1, (p - 0.28) / 0.17))
         const interOut = Math.max(0, Math.min(1, (p - 0.60) / 0.12))
         gsap.set(interstitialRef.current, { opacity: interIn * (1 - interOut), pointerEvents: 'none' })
@@ -332,7 +332,7 @@ export default function PublicationsFooterSection() {
         {/* ── Mobile background image (footer phase — mobile only) ── */}
         <div className={styles.mobileFooterBg}>
           <Image
-            src="/assets/footer-mobile.png"
+            src="/assets/footer-mobile.webp"
             alt=""
             fill
             className={styles.mobileFooterBgImg}
