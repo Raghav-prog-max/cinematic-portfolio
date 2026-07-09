@@ -103,6 +103,22 @@
       ],
       "desc": "Planned and executed 5+ tech events reaching 5,000+ students across campus. Secured a Casio collaboration bringing representatives from Japan to campus — the chapter's first international industry partnership.",
       "tech": ["Campaign Planning", "Partnership Outreach", "Engagement Analytics", "Team Coordination"]
+    },
+    {
+      "id": 5,
+      "role": "Data Analyst",
+      "company": "Bluestock",
+      "companyShort": "BLUESTOCK",
+      "type": "Internship",
+      "location": "Remote",
+      "period": "Jun 2026",
+      "periodEnd": "Present",
+      "bullets": [
+        "Perform exploratory data analysis on financial datasets — profiling, cleaning, and surfacing patterns that inform product decisions.",
+        "Apply statistical data analysis techniques to validate hypotheses and turn raw numbers into actionable insights."
+      ],
+      "desc": "Data analyst internship focused on exploratory and statistical data analysis — profiling and cleaning financial datasets, validating hypotheses, and turning raw numbers into actionable insights.",
+      "tech": ["Exploratory Data Analysis", "Statistical Analysis", "Python", "SQL"]
     }
   ],
   "projects": [
