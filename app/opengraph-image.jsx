@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Vaibhav Khushalani | Full Stack Developer'
+export const alt = 'Raghav Sharma | Full-Stack Developer'
 
 export const size = {
   width: 1200,
@@ -100,7 +100,7 @@ export default function Image() {
                 letterSpacing: -4,
               }}
             >
-              VAIBHAV
+              RAGHAV
             </span>
 
             <span
@@ -111,7 +111,7 @@ export default function Image() {
                 letterSpacing: -4,
               }}
             >
-              KHUSHALANI
+              SHARMA
             </span>
           </div>
 
@@ -125,7 +125,7 @@ export default function Image() {
               marginBottom: 34,
             }}
           >
-            Building cinematic digital experiences with modern web
+            Building full-stack web experiences with modern
             technologies & AI.
           </div>
 
@@ -139,10 +139,10 @@ export default function Image() {
             }}
           >
             {[
-              'AI Architect',
-              'Full Stack',
-              'Next.js',
-              'MERN Stack',
+              'Full-Stack Developer',
+              'React + TypeScript',
+              'AI Integration',
+              'CS @ Bennett',
             ].map((tag) => (
               <div
                 key={tag}
@@ -169,8 +169,8 @@ export default function Image() {
             }}
           >
             {[
-              ['4+', 'Years'],
-              ['20+', 'Projects'],
+              ['7+', 'Certifications'],
+              ['2', 'Projects'],
               ['AI + FS', 'Specialist'],
             ].map(([value, label]) => (
               <div
@@ -222,7 +222,7 @@ export default function Image() {
             src={photoUrl}
             width={420}
             height={630}
-            alt="Vaibhav Khushalani"
+            alt="Raghav Sharma"
             style={{
               objectFit: 'cover',
             }}
@@ -250,7 +250,7 @@ export default function Image() {
             letterSpacing: 2,
           }}
         >
-          vaibhav-create.vercel.app
+          raghav-sharma-portfolio.vercel.app
         </div>
       </div>
     ),

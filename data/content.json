@@ -4,15 +4,15 @@
   },
   "hero": {
     "taglineHighlight": "experiences",
-    "freelanceNote": "Available for freelance & full-time opportunities.",
+    "freelanceNote": "Available for internships & collaborative projects.",
     "availableLabel": "Available for work",
-    "pills": ["AI Architect", "Full Stack Engineer", "Cinematic Creator", "MERN Stack"],
+    "pills": ["Full-Stack Developer", "React + TypeScript", "AI Integration", "CS @ Bennett"],
     "specialistStat": { "value": "AI + Full Stack", "label": "Specialist" }
   },
   "interstitial": {
     "availabilityLabel": "Availability",
     "basedInLabel": "Based in",
-    "statLabels": ["Years\nexperience", "Projects\ndelivered", "Companies\nworked at"]
+    "statLabels": ["Certifications\nearned", "Production\nprojects", "Students\nreached"]
   },
   "footer": {
     "eyebrow": "Available for collaborations",

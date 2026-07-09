@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
-import { FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'
 import profile from '@/data/profile.json'
 import styles from '@/styles/sections/AboutSection.module.css'
 
 const BIO      = profile.bio
 const WHO_ITEMS = profile.skills
 
-const ICON_MAP = { GitHub: FaGithub, LinkedIn: FaLinkedinIn, Medium: FaMedium, Instagram: FaInstagram, YouTube: FaYoutube }
+const ICON_MAP = { GitHub: FaGithub, LinkedIn: FaLinkedinIn, Medium: FaMedium, Instagram: FaInstagram, YouTube: FaYoutube, Email: FaEnvelope }
 
 const SOCIALS = profile.socials.map(s => ({ Icon: ICON_MAP[s.label], href: s.href, label: s.label }))
 
@@ -88,7 +88,7 @@ export default function AboutSection() {
           <div className={styles.photoFrame} data-about-photo>
             <Image
               src="/assets/about.webp"
-              alt="Vaibhav Khushalani"
+              alt="Raghav Sharma"
               fill
               quality={100}
               sizes="(min-width: 768px) 30vw, 100vw"

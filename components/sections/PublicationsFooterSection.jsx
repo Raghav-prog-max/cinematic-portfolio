@@ -21,14 +21,15 @@ const SOCIAL_ICONS = {
   Medium:    <FaMedium    size={13} />,
   Instagram: <FaInstagram size={13} />,
   YouTube:   <FaYoutube   size={13} />,
+  Email:     <FaEnvelope  size={13} />,
 }
 
 const MOBILE_SOCIAL_ICONS = {
   GitHub:    <FaGithub    size={20} />,
   LinkedIn:  <FaLinkedinIn  size={20} />,
-  Instagram: <FaInstagram size={20} />,
+  Email:     <FaEnvelope  size={20} />,
 }
-const HERO_SOCIAL_LABELS = ['GitHub', 'LinkedIn', 'Instagram']
+const HERO_SOCIAL_LABELS = ['GitHub', 'LinkedIn', 'Email']
 
 const VID_VERT = `
   varying vec2 vUv;
@@ -363,11 +364,11 @@ export default function PublicationsFooterSection() {
 
         {/* ── Publication content (right of image) ── */}
         <div ref={pubContentRef} className={styles.pubContent}>
-          <span className={styles.watermark} aria-hidden>WRITING</span>
+          <span className={styles.watermark} aria-hidden>LEARNING</span>
 
           <div className={styles.pubHero}>
-            <p  ref={labelRef}   className={styles.label}>Research &amp; Writing</p>
-            <h2 ref={headingRef} className={styles.heading}>Publications</h2>
+            <p  ref={labelRef}   className={styles.label}>Certifications &amp; Badges</p>
+            <h2 ref={headingRef} className={styles.heading}>Certifications</h2>
           </div>
 
           <div ref={dividerRef} className={styles.divider} />
@@ -393,7 +394,7 @@ export default function PublicationsFooterSection() {
                 <div className={styles.itemRight}>
                   <span className={styles.year}>{pub.year}</span>
                   <span className={styles.readBtn}>
-                    Read <FiArrowUpRight size={11} />
+                    View <FiArrowUpRight size={11} />
                   </span>
                 </div>
               </a>
