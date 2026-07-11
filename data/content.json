@@ -6,7 +6,7 @@
     "taglineHighlight": "experiences",
     "freelanceNote": "Available for internships & collaborative projects.",
     "availableLabel": "Available for work",
-    "pills": ["Full-Stack Developer", "React + TypeScript", "AI Integration", "CS @ Bennett"],
+    "pills": ["Full-Stack Developer", "React + TypeScript", "Backend & Cloud", "Next.js", "AI Integration", "CS @ Bennett"],
     "specialistStat": { "value": "AI + Full Stack", "label": "Specialist" }
   },
   "interstitial": {
