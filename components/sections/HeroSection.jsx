@@ -3,8 +3,9 @@
 import { useEffect, useRef, Fragment } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { FaGithub, FaLinkedinIn, FaInstagram, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaInstagram, FaEnvelope, FaJava } from 'react-icons/fa'
 import { FiArrowUpRight } from 'react-icons/fi'
+import { SiTypescript, SiJavascript, SiPython, SiC, SiCplusplus } from 'react-icons/si'
 import { gsap } from '@/lib/gsap'
 
 import profile from '@/data/profile.json'
@@ -14,6 +15,7 @@ import styles from '@/styles/sections/HeroSection.module.css'
 const HeroBackground = dynamic(() => import('@/components/three/HeroBackground'), { ssr: false })
 
 const SOCIAL_ICON_MAP = { GitHub: FaGithub, LinkedIn: FaLinkedinIn, Instagram: FaInstagram, Email: FaEnvelope }
+const LANG_ICON_MAP = { typescript: SiTypescript, javascript: SiJavascript, python: SiPython, java: FaJava, c: SiC, cplusplus: SiCplusplus }
 const SIDEBAR_LABELS  = ['Email', 'GitHub', 'LinkedIn']
 
 function splitTagline(text, highlight) {
@@ -36,6 +38,7 @@ export default function HeroSection() {
   const lastName       = useRef(null)
   const photoRef       = useRef(null)
   const pillsRef       = useRef(null)
+  const langsRef       = useRef(null)
   const ctaBtnRef      = useRef(null)
   const statsRef       = useRef(null)
   const taglineCardRef = useRef(null)
@@ -56,7 +59,7 @@ export default function HeroSection() {
     const fadeY = [
       greetRef.current, roleRef.current,
       firstName.current, lastName.current,
-      pillsRef.current, ctaBtnRef.current, statsRef.current,
+      pillsRef.current, langsRef.current, ctaBtnRef.current, statsRef.current,
     ].filter(Boolean)
 
     const fadeX = [taglineCardRef.current, availCardRef.current].filter(Boolean)
@@ -73,6 +76,7 @@ export default function HeroSection() {
       .to(lastName.current,       { opacity: 1, y: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.4')
       .to(photoRef.current,       { opacity: 1, x: 0, duration: 0.7,  ease: 'power2.out' }, '-=0.5')
       .to(pillsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
+      .to(langsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(ctaBtnRef.current,      { opacity: 1, y: 0, duration: 0.4,  ease: 'power2.out' }, '-=0.2')
       .to(statsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.2')
       .to(taglineCardRef.current, { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.5')
@@ -172,6 +176,19 @@ export default function HeroSection() {
               )}
             </Fragment>
           ))}
+        </div>
+
+        {/* Languages */}
+        <div ref={langsRef} className={styles.langs}>
+          {content.hero.languages.map(lang => {
+            const Icon = LANG_ICON_MAP[lang.icon]
+            return (
+              <span key={lang.label} className={styles.langChip}>
+                {Icon && <Icon className={styles.langIcon} aria-hidden="true" />}
+                {lang.label}
+              </span>
+            )
+          })}
         </div>
 
         {/* View Projects CTA */}

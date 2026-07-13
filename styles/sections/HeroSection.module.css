@@ -177,6 +177,37 @@
   flex-shrink: 0;
 }
 
+/* ─── Languages Row ──────────────────────────────────────── */
+.langs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.langChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-baloo), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.langIcon {
+  font-size: 1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
 /* ─── View Projects Button ───────────────────────────────── */
 .viewBtn {
   display: inline-flex;
@@ -347,6 +378,9 @@
   .pills       { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.4rem; }
   .pill        { font-size: 0.62rem; padding: 0.32rem 0.5rem; text-align: center; white-space: normal; flex: unset; }
   .pillDot     { display: none; }
+  .langs       { gap: 0.3rem; margin-top: 0.4rem; }
+  .langChip    { font-size: 0.58rem; padding: 0.28rem 0.55rem; gap: 0.28rem; }
+  .langIcon    { font-size: 0.7rem; }
   .viewBtn     { font-size: 0.78rem; padding: 0.55rem 1.2rem; }
 }
 

@@ -7,6 +7,14 @@
     "freelanceNote": "Available for internships & collaborative projects.",
     "availableLabel": "Available for work",
     "pills": ["Full-Stack Developer", "React + TypeScript", "Backend & Cloud", "Next.js", "AI Integration", "CS @ Bennett"],
+    "languages": [
+      { "label": "TypeScript", "icon": "typescript" },
+      { "label": "JavaScript", "icon": "javascript" },
+      { "label": "Python",     "icon": "python" },
+      { "label": "Java",       "icon": "java" },
+      { "label": "C",          "icon": "c" },
+      { "label": "C++",        "icon": "cplusplus" }
+    ],
     "specialistStat": { "value": "AI + Full Stack", "label": "Specialist" }
   },
   "interstitial": {
