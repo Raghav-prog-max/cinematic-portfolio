@@ -79,12 +79,25 @@ export default function HeroSection() {
       .to(availCardRef.current,   { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(socialRef.current,      { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.4')
 
+    // slow cinematic breathing zoom on the portrait, like a live video;
+    // starts only after the entrance timeline finishes to avoid fighting it
+    const breathe = gsap.to(photoRef.current, {
+      scale: 1.05,
+      duration: 6,
+      yoyo: true,
+      repeat: -1,
+      ease: 'sine.inOut',
+      transformOrigin: 'bottom center',
+      paused: true,
+    })
+    tl.eventCallback('onComplete', () => breathe.play())
+
     const observer = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { tl.play(); observer.disconnect() } },
       { threshold: 0.3 },
     )
     observer.observe(section)
-    return () => { observer.disconnect(); tl.kill() }
+    return () => { observer.disconnect(); tl.kill(); breathe.kill() }
   }, [])
 
   const sidebarSocials = SIDEBAR_LABELS
