@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, Fragment } from 'react'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { FaGithub, FaLinkedinIn, FaInstagram, FaEnvelope, FaJava } from 'react-icons/fa'
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -36,7 +35,6 @@ export default function HeroSection() {
   const roleRef        = useRef(null)
   const firstName      = useRef(null)
   const lastName       = useRef(null)
-  const photoRef       = useRef(null)
   const pillsRef       = useRef(null)
   const langsRef       = useRef(null)
   const ctaBtnRef      = useRef(null)
@@ -66,7 +64,6 @@ export default function HeroSection() {
 
     gsap.set(fadeY, { opacity: 0, y: 30 })
     gsap.set(fadeX, { opacity: 0, x: 20 })
-    if (photoRef.current)  gsap.set(photoRef.current,  { opacity: 0, x: 80 })
     if (socialRef.current) gsap.set(socialRef.current, { opacity: 0, x: -20 })
 
     const tl = gsap.timeline({ paused: true })
@@ -74,7 +71,6 @@ export default function HeroSection() {
       .to(roleRef.current,        { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(firstName.current,      { opacity: 1, y: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.2')
       .to(lastName.current,       { opacity: 1, y: 0, duration: 0.6,  ease: 'power2.out' }, '-=0.4')
-      .to(photoRef.current,       { opacity: 1, x: 0, duration: 0.7,  ease: 'power2.out' }, '-=0.5')
       .to(pillsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(langsRef.current,       { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(ctaBtnRef.current,      { opacity: 1, y: 0, duration: 0.4,  ease: 'power2.out' }, '-=0.2')
@@ -83,25 +79,12 @@ export default function HeroSection() {
       .to(availCardRef.current,   { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.3')
       .to(socialRef.current,      { opacity: 1, x: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.4')
 
-    // slow cinematic breathing zoom on the portrait, like a live video;
-    // starts only after the entrance timeline finishes to avoid fighting it
-    const breathe = gsap.to(photoRef.current, {
-      scale: 1.05,
-      duration: 6,
-      yoyo: true,
-      repeat: -1,
-      ease: 'sine.inOut',
-      transformOrigin: 'bottom center',
-      paused: true,
-    })
-    tl.eventCallback('onComplete', () => breathe.play())
-
     const observer = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { tl.play(); observer.disconnect() } },
       { threshold: 0.3 },
     )
     observer.observe(section)
-    return () => { observer.disconnect(); tl.kill(); breathe.kill() }
+    return () => { observer.disconnect(); tl.kill() }
   }, [])
 
   const sidebarSocials = SIDEBAR_LABELS
@@ -112,16 +95,6 @@ export default function HeroSection() {
     <section ref={sectionRef} className={styles.section}>
 
       <HeroBackground />
-
-      {/* Photo */}
-      <div ref={photoRef} className={styles.photo}>
-        <Image
-          src="/assets/hero-v2.png" alt={profile.name.full}
-          fill priority quality={100}
-          sizes="(min-width: 768px) 55vw, 100vw"
-          className={styles.photoImg}
-        />
-      </div>
 
       {/* Social Sidebar */}
       <div ref={socialRef} className={styles.socialSidebar}>
