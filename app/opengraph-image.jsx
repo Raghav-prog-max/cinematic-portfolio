@@ -250,7 +250,7 @@ export default function Image() {
             letterSpacing: 2,
           }}
         >
-          raghav-sharma-portfolio.vercel.app
+          cinematic-portfolio-gules.vercel.app
         </div>
       </div>
     ),
