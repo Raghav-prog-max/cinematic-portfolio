@@ -42,4 +42,3 @@ Connect the repository to [Vercel](https://vercel.com) and it deploys automatica
 
 ## Credits
 
-Design adapted from [cinematic-portfolio](https://github.com/VaibhavKhushalani/cinematic-portfolio) by [Vaibhav Khushalani](https://www.linkedin.com/in/vaibhav-khushalani-760217136), used under its MIT license.
