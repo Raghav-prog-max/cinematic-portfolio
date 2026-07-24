@@ -48,3 +48,5 @@ next-env.d.ts
 
 # internal dev planning docs
 docs/superpowers
+# local dev server log
+devserver.log
